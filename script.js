@@ -21,6 +21,7 @@ $(function() {
             next.append('<td info="falta">---</td>');
             next.append('<td info="exame">---</td>');
             $('table').append(next);
+            j = 0;
             linha++;
         };
         addLinha();
