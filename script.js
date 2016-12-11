@@ -49,7 +49,7 @@ $(function() {
 
         if ($(this).children().val() == '' || $(this).children().val() == '---') {
             if ($('tr:last').attr('linha') != 1 && ($('tr:last').children().first().html() == '---' || $('tr:last').children().first().html() == '---')) {
-                if (parseInt(($(this).parent().attr('linha'))) > 1) {
+                if (parseInt(($(this).parent().attr('linha'))) > 0) {
                     $(this).parent().remove();
                     var linha = 1;
                     $('table tr').each(function() {
