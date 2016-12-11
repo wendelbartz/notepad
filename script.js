@@ -1,16 +1,29 @@
 $(function() {
     if (localStorage.notepad != undefined) {
-        var i = 0;
+        var i = 1;
         var j = 0;
+        var linha = 2;
         var notas = JSON.parse(localStorage.getItem('notepad'));
+        var next;
+
+        $('tr:last > td[info="nome"]').html(notas[0][0]);
+        $('tr:last > td[info="nota1"]').html(notas[0][1]);
+        $('tr:last > td[info="nota2"]').html(notas[0][2]);
+        $('tr:last > td[info="nota3"]').html(notas[0][3]);
+        $('tr:last > td[info="nota4"]').html(notas[0][4]);
         while (notas.length > i) {
-            $('tr:last > td[info="nome"]').html(notas[i][j++]);
-            $('tr:last > td[info="nota1"]').html(notas[i][j++]);
-            $('tr:last > td[info="nota2"]').html(notas[i][j++]);
-            $('tr:last > td[info="nota3"]').html(notas[i][j++]);
-            $('tr:last > td[info="nota4"]').html(notas[i++][j++]);
-            addLinha()
-        }
+            next = $('<tr linha="' + linha + '"></tr>');
+            next.append('<td info="nome">'+notas[i][j++]+'</td>');
+            next.append('<td info="nota1">'+notas[i][j++]+'</td>');
+            next.append('<td info="nota2">'+notas[i][j++]+'</td>');
+            next.append('<td info="nota3">'+notas[i][j++]+'</td>');
+            next.append('<td info="nota4">'+notas[i++][j++]+'</td>');
+            next.append('<td info="falta">---</td>');
+            next.append('<td info="exame">---</td>');
+            $('table').append(next);
+            linha++;
+        };
+        addLinha();
         preencheTab();
     };
 
