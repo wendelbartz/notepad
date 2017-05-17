@@ -1,5 +1,5 @@
 $(function() {
-    if (localStorage.notepad != undefined || localStorage.notepad != "[]"{
+    if (localStorage.notepad != undefined || localStorage.notepad != "[]"){
         var i = 1;
         var j = 0;
         var linha = 2;
